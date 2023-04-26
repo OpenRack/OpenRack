@@ -1,6 +1,7 @@
 import os, re, fnmatch, zipfile
 import xml.etree.ElementTree as ET
 from bs4 import BeautifulSoup
+from methods import *
 #All aspects of this code and repository are the intellectual property of Christopher Mathews. They may be shared and/or reused under the license specified in the repository. ("https://github.com/chrismathews393/OpenRack")
 #Start in AppData
 appdata = os.getenv('APPDATA')
@@ -9,36 +10,57 @@ dblocationcr = os.path.join(appdata, "cYo","ComicDb.xml")
 dblocationor = os.path.join(appdata, "OpenRack", "ComicDb.xml" )
 
 #Set legacy to null
-legacy = None
+legacy = 7
 #Program attempts to find the comicrack database, if it exists, and sets legacy flag based on response. If no CR DB is found, it sets legacy to 0 and opens the OpenRack db
-try:
-    db = open(dblocationcr,'r+', encoding="utf8")
+
+#Checks if DBs exist
+comicdbexists = os.path.isfile(dblocationcr)
+opendbexists = os.path.isfile(dblocationor)
+
+if comicdbexists == True & opendbexists == False:
     legacy = 1
-except:
-    db = open(dblocationor, 'r+', encoding="utf8")
+    #Uses CR DB
+if comicdbexists == False & opendbexists == False:
+    legacy = 2
+    #NO DB! creates a new OR DB
+if comicdbexists == False & opendbexists == True:
     legacy = 0
+    #Uses existing OR DB
 
+#Do Both DBs exist?
+valueset = False   
+while comicdbexists == True & opendbexists == True & valueset == False:
+    print("Do you want to proceed with the OpenRack DB or the ComicRack DB?")
+    whichdb = input()
+    #if whichdb != '1' and whichdb != '2':
+    #    print(whichdb+" is not an acceptable answer.")
+    #else:
+    #    break
+    if whichdb == 'OpenRack':
+            legacy = 0
+            valueset == True
+            break
+    if whichdb == 'ComicRack':
+            legacy = 1
+            valueset == True
+            break
+    
+    
+    
 
-bsdata = BeautifulSoup(db, "xml")
+#bsdata = BeautifulSoup(db, "xml")
 
-tree = ET.parse(db)
+#tree = ET.parse(db)
 
 if legacy == 1:
     print('Using ComicRack database')
     
 if legacy == 0:
     print('Using OpenRack database')
-    dbexists = os.path.isfile(dblocationor)
-    if dbexists == True:
-        print("db exists, proceeding")
-    else:
-        print('Performing initial XML structuring')
-        ComicDatabase = ET.Element ('ComicDatabase')
-        Books = ET.SubElement(ComicDatabase, 'Books')
-        Book = ET.SubElement(Books, 'Book')
-        tags = ["Title","Series","Number","Count","Volume","AlternateSeries / AlternateNumber / AlternateCount","Summary","Notes","Year / Month / Day","Creator fields","Publisher","Imprint","Genre","Tags","Web","PageCount","LanguageISO","BlackAndWhite","Manga","Characters","Teams","Locations","MainCharacterOrTeam","ScanInformation","StoryArc","StoryArcNumber","SeriesGroup","AgeRating","CommunityRating","Review","GTIN","Pages / ComicPageInfo"]
-        for tag in tags:
-            subelement = ET.SubElement(Book, tag)
+    
+if legacy == 2:
+        MakeDB()
+    
 
 
     
