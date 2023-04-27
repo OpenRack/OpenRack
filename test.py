@@ -1,10 +1,12 @@
-import sys
+import sys, os
 
 
 platform = sys.platform
-print(platform)
-
 if "linux" in platform:
-    print("nice")
-if "win" in platform:
-    print("ugh")
+    appdata = os.getenv('HOME')
+if "win" in platform:    
+    appdata = os.getenv('APPDATA')
+print (appdata)
+
+dblocationor = os.path.join(appdata, "OpenRack", "ComicDb.xml" )
+print(dblocationor)
