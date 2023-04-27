@@ -4,12 +4,11 @@ import xml.etree.ElementTree as ET
 from bs4 import BeautifulSoup
 from main import dblocationcr, dblocationor
 
-def MakeDB(directory):
-    print('Performing initial XML structuring')
-    ComicDatabase = ET.Element ('ComicDatabase')
-    Books = ET.SubElement(ComicDatabase, 'Books')
-    Book = ET.SubElement(Books, 'Book')
-    ET.write(directory+"ComicDB.xml")
+#def MakeDB(directory):
+ #   print('Performing initial XML structuring')
+  #  ComicDatabase = ET.Element ('ComicDatabase')
+   ##Book = ET.SubElement(Books, 'Book')
+   # ET.write(directory+"ComicDB.xml")
     
 
 

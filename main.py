@@ -19,9 +19,13 @@ dblocationor = os.path.join(appdata, "OpenRack", "ComicDb.xml" )
 def MakeDB(directory):
     print('Performing initial XML structuring')
     ComicDatabase = ET.ElementTree ('ComicDatabase')
-    Books = ET.SubElement(ComicDatabase, 'Books')
+    Books = ET.Element(ComicDatabase, 'Books')
     Book = ET.SubElement(Books, 'Book')
-    ComicDatabase.write(directory+"ComicDB.xml")
+    #ComicDatabase.write(directory+"/ComicDB.xml")
+
+    tree = ET.ElementTree(ComicDatabase)
+    f = open(directory + "/ComicDB.xml","wb")
+    tree.write(f)
 
 def CheckDB():
     global legacy
