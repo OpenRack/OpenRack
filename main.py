@@ -2,8 +2,11 @@ import os, re, fnmatch, zipfile
 import xml.etree.ElementTree as ET
 from bs4 import BeautifulSoup
 from methods import *
+import sys
 #All aspects of this code and repository are the intellectual property of Christopher Mathews. They may be shared and/or reused under the license specified in the repository. ("https://github.com/chrismathews393/OpenRack")
 #Start in AppData
+platform = sys.platform
+print(platform)
 appdata = os.getenv('APPDATA')
 #Set path to ComicRack or OpenRack Database
 dblocationcr = os.path.join(appdata, "cYo","ComicDb.xml")
