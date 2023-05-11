@@ -17,14 +17,17 @@ dblocationcr = os.path.join(appdata, "cYo","ComicDb.xml")
 dblocationor = os.path.join(appdata, "OpenRack", "ComicDb.xml" )
 
 def MakeDB(directory):
+    
     print('Performing initial XML structuring')
-    ComicDatabase = ET.ElementTree ('ComicDatabase')
-    Books = ET.Element(ComicDatabase, dict(name='Books'))
+    # Creates ComicDatabase Element
+    ComicDatabase = ET.Element('ComicDatabase')
+    # Creates a tree Element named Books inside of ComicDatabase
+    Books = ET.SubElement(ComicDatabase, 'Books')
+    # Creates a subelement named Book inside of Books
     Book = ET.SubElement(Books, 'Book')
-    #ComicDatabase.write(directory+"/ComicDB.xml")
-
+    # Sets the tree var to the element tree
     tree = ET.ElementTree(ComicDatabase)
-    f = open(directory + "/ComicDB.xml","wb")
+    f = (directory + "/OpenRack/ComicDB.xml")
     tree.write(f)
 
 def CheckDB():
@@ -33,18 +36,16 @@ def CheckDB():
     opendbexists = os.path.isfile(dblocationor)
     if comicdbexists == True:
         legacy = 1
+        print("1")
     elif opendbexists == True:
         legacy = 0
+        print("0")
     else:
         legacy = 2
+        print("2")
     return legacy
 
 CheckDB()
-#print (legacy)
-
-#bsdata = BeautifulSoup(db, "xml")
-
-#tree = ET.parse(db)
 
 if legacy == 1:
     print('Using ComicRack database')

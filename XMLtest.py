@@ -18,17 +18,36 @@ dblocationor = os.path.join(appdata, "OpenRack", "ComicDb.xml" )
 
 #Function to create database
 def MakeDB(directory):
+    
     print('Performing initial XML structuring')
-    #Sets ComicDatabase to an element tree named ComicDatabase
-    ComicDatabase = ET.ElementTree ('ComicDatabase')
-    #Creates a tree Element named Books inside of ComicDatabase
-    Books = ET.Element('Books')
-    #Creates a subelement named Book inside of Books
+    # Sets ComicDatabase to an element tree
+    ComicDatabase = ET.Element('ComicDatabase')
+    # Creates a tree Element named Books inside of ComicDatabase
+    Books = ET.SubElement(ComicDatabase, 'Books')
+    # Creates a subelement named Book inside of Books
     Book = ET.SubElement(Books, 'Book')
-    #ComicDatabase.write(directory+"/ComicDB.xml")
-
+    # Writes the XML tree to file
     tree = ET.ElementTree(ComicDatabase)
-    f = open(directory + "/ComicDB.xml","wb")
+    f = (directory + "/OpenRack/ComicDB.xml")
     tree.write(f)
     
 MakeDB(appdata)
+
+
+
+librarydir = "C:\Users\cmathews\OneDrive - Midnight Monsters\Desktop\Test Directory"
+
+
+def ReadFiles(library):
+    file_list = []
+    # Iterate through all files in the directory and its subdirectories
+    for root, dirs, files in os.walk(library):
+        # Print the name of each file
+        for file in files:
+            file_list.append(os.path.join(root, file))
+    return file_list
+
+        
+
+library = ReadFiles(librarydir)
+
