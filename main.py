@@ -2,7 +2,7 @@ import os, re, fnmatch, zipfile
 import xml.etree.ElementTree as ET
 import xml.etree
 from bs4 import BeautifulSoup
-from methods import *
+#from methods import *
 import sys
 #All aspects of this code and repository are the intellectual property of Christopher Mathews. They may be shared and/or reused under the license specified in the repository. ("https://github.com/chrismathews393/OpenRack")
 #Start in AppData
@@ -19,7 +19,7 @@ dblocationor = os.path.join(appdata, "OpenRack", "ComicDb.xml" )
 def MakeDB(directory):
     print('Performing initial XML structuring')
     ComicDatabase = ET.ElementTree ('ComicDatabase')
-    Books = ET.Element(ComicDatabase, 'Books')
+    Books = ET.Element(ComicDatabase, dict(name='Books'))
     Book = ET.SubElement(Books, 'Book')
     #ComicDatabase.write(directory+"/ComicDB.xml")
 
@@ -40,7 +40,7 @@ def CheckDB():
     return legacy
 
 CheckDB()
-print (legacy)
+#print (legacy)
 
 #bsdata = BeautifulSoup(db, "xml")
 
@@ -56,5 +56,6 @@ if legacy == 2:
         MakeDB(appdata)
     
 
+#create window after initialization
 
     
