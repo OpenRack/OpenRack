@@ -1,3 +1,3 @@
 {
-    "files": ["form.ui","widget.py",".gitignore","ComicDB.xml","form.ui","libraryscantest.py","main.py","methods.py","openfile.py","test.py","ui_form.py","widget.py","XMLtest.py"]
+    "files": ["widget.py","openfile.py","test.py","libraryscantest.py","main.py","methods.py","XMLtest.py","ui_form.py",".gitignore","ComicDB.xml","mainwindow.ui"]
 }
