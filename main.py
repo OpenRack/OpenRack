@@ -23,8 +23,6 @@ def MakeDB(directory):
     ComicDatabase = ET.Element('ComicDatabase')
     # Creates a tree Element named Books inside of ComicDatabase
     Books = ET.SubElement(ComicDatabase, 'Books')
-    # Creates a subelement named Book inside of Books
-    Book = ET.SubElement(Books, 'Book')
     # Sets the tree var to the element tree
     tree = ET.ElementTree(ComicDatabase)
     f = (directory + "/OpenRack/ComicDB.xml")
