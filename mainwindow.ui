@@ -13,7 +13,18 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QColumnView" name="columnView">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>0</y>
+      <width>1641</width>
+      <height>971</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
@@ -108,7 +119,8 @@
   </action>
   <action name="actionScan_Library">
    <property name="icon">
-    <iconset theme="emblem-documents"/>
+    <iconset theme="emblem-documents">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
     <string>Scan Library</string>

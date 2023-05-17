@@ -53,7 +53,7 @@ if legacy == 0:
     
 if legacy == 2:
         MakeDB(appdata)
-    
+
 
 #create window after initialization
 
