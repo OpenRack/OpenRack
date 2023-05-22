@@ -1,8 +1,21 @@
 import os, zipfile
-import mysql.connector as db
+#import mysql.connector as db
+import sqlite3 as db
+import sys
 
 
-librarydir = "C:\\Users\\cmathews\\OneDrive - Midnight Monsters\\Desktop\\Test Directory"
+
+
+platform = sys.platform
+if "linux" in platform:
+    appdata = os.getenv('HOME')
+if "win" in platform:    
+    appdata = os.getenv('APPDATA')
+    
+dblocationor = os.path.join(appdata, "OpenRack")
+
+
+librarydir = 
 
 def ReadFiles(library):
     file_list = []
@@ -35,10 +48,22 @@ def ReadFiles(library):
     cursor.close()
     conn.close()
 '''    
+
+def dbconnecttest():
+    print(dblocationor)
+    conn = db.connect(dblocationor+"\\openrack.db")
+
+def dbmake():
+
+    conn = db.connect(dblocationor+"\\openrack.db")
+    cursor = conn.cursor()
+    cursor.execute("CREATE TABLE openrack (id INTEGER NOT NULL,comicinfo TEXT,filepath TEXT, PRIMARY KEY (id))")
+    cursor.close()
+    conn.close()
     
-def libscan(host, user, password, database, files):
+def libscan(files):
     try:
-        conn = db.connect(host=host, user=user, password=password, database=database)
+        conn = db.connect(dblocationor+"\\openrack.db")
         cursor = conn.cursor()
 
         for cbfile in files:
@@ -47,19 +72,19 @@ def libscan(host, user, password, database, files):
                 comicinfo = cbzip.read('ComicInfo.xml')
                 
                 # Check if the file exists in the database
-                query = "SELECT id, comicinfo FROM openrack WHERE filepath = %s"
+                query = "SELECT id, comicinfo FROM openrack WHERE filepath = ?"
                 cursor.execute(query, (cbfile,))
                 existing_entry = cursor.fetchone()
                 
                 if existing_entry:
                     existing_id, existing_comicinfo = existing_entry
-                    update_query = "UPDATE openrack SET comicinfo = %s WHERE id = %s"
+                    update_query = "UPDATE openrack SET comicinfo = ? WHERE id = ?"
                     cursor.execute(update_query, (comicinfo, existing_id))
                     conn.commit()
                     print("ComicInfo updated for entry:", existing_id)
                 else:
                     # Insert new entry into the database
-                    addbook = "INSERT INTO openrack (id, comicinfo, filepath) VALUES (null, %s, %s)"
+                    addbook = "INSERT INTO openrack (id, comicinfo, filepath) VALUES (null, ?, ?)"
                     bookdata = (comicinfo, cbfile)
                     cursor.execute(addbook, bookdata)
                     conn.commit()
@@ -76,4 +101,6 @@ def libscan(host, user, password, database, files):
     
 #libfiles = ReadFiles(librarydir)
 
-#libscan('localhost','openrack','password','openrack',libfiles)
+#libscan(libfiles)
+
+#dbmake()

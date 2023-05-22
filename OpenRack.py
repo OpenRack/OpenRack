@@ -1,6 +1,6 @@
 from ast import main
 from PyQt5 import QtWidgets
-from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog
+from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog, QWidget
 from PyQt5.uic import loadUi
 import sys
 import ComicLibrary
@@ -20,6 +20,14 @@ class MainUI(QMainWindow):
         libfiles = ComicLibrary.ReadFiles(ComicLibrary.librarydir)
         ComicLibrary.libscan('localhost','openrack','password','openrack',libfiles)
         
+
+class PrefUI(QWidget):
+    def __init__(self):
+        super(PrefUI, self).__init__()
+        loadUi(".\\preferences.ui", self)
+    def scanfolders(self):
+        for library in libraries:
+            libfiles = ComicLibrary.Readfiles(ComicLibrary.librarydir)       
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
