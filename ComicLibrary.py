@@ -15,7 +15,7 @@ if "win" in platform:
 dblocationor = os.path.join(appdata, "OpenRack")
 
 
-librarydir = 
+#librarydir = 
 
 def ReadFiles(library):
     file_list = []

@@ -9,5 +9,16 @@ config_object["databaseconfig"] = {
 }
 
 config_object["libraryconfig"] = {
-    "librarypath": 
+    "librarypath": ""
 }
+
+config_object["userconfig"] = {
+    
+}
+
+config_object["firstrun"] = {
+    "firstrun" : "true"
+}
+
+with open('openrack.ini', 'w') as conf:
+    config_object.write(conf)
