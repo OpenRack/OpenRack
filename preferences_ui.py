@@ -11,24 +11,20 @@
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt)
-from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
-    QCursor, QFont, QFontDatabase, QGradient,
-    QIcon, QImage, QKeySequence, QLinearGradient,
-    QPainter, QPalette, QPixmap, QRadialGradient,
-    QTransform)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QCheckBox, QFrame, QListWidget,
     QListWidgetItem, QPushButton, QSizePolicy, QTabWidget,
     QWidget)
 
-class Ui_Form(object):
-    def setupUi(self, Form):
-        if not Form.objectName():
-            Form.setObjectName(u"Form")
-        Form.resize(864, 641)
-        self.actionPreferences_Libraries_FolderAdd = QAction(Form)
-        self.actionPreferences_Libraries_FolderAdd.setObjectName(u"actionPreferences_Libraries_FolderAdd")
-        self.actionPreferences_Libraries_FolderAdd.setMenuRole(QAction.TextHeuristicRole)
-        self.tabWidget = QTabWidget(Form)
+class Ui_Preferences(object):
+    def setupUi(self, Preferences):
+        if not Preferences.objectName():
+            Preferences.setObjectName(u"Preferences")
+        Preferences.resize(864, 641)
+        self.tabWidget = QTabWidget(Preferences)
         self.tabWidget.setObjectName(u"tabWidget")
         self.tabWidget.setGeometry(QRect(10, 10, 851, 611))
         self.tabWidget.setMinimumSize(QSize(851, 0))
@@ -59,6 +55,9 @@ class Ui_Form(object):
         self.Preferences_Libraries_FolderAdd = QPushButton(self.Preferences_LibrariesSettingsFrame)
         self.Preferences_Libraries_FolderAdd.setObjectName(u"Preferences_Libraries_FolderAdd")
         self.Preferences_Libraries_FolderAdd.setGeometry(QRect(560, 10, 75, 24))
+        self.Preferences_Libraries_FolderAdd.setFocusPolicy(Qt.NoFocus)
+        self.Preferences_Libraries_FolderAdd.setCheckable(False)
+        self.Preferences_Libraries_FolderAdd.setAutoRepeat(False)
         self.Preferences_Libraries_FolderAdd.setAutoDefault(False)
         self.Preferences_Libraries_FolderAdd.setFlat(False)
         self.Preferences_Libraries_ChangePath = QPushButton(self.Preferences_LibrariesSettingsFrame)
@@ -77,25 +76,25 @@ class Ui_Form(object):
         icon.addFile(u"../../../../Downloads/22222222.png", QSize(), QIcon.Normal, QIcon.Off)
         self.tabWidget.addTab(self.tab, icon, "")
 
-        self.retranslateUi(Form)
-        self.Preferences_Libraries_FolderAdd.clicked.connect(Form.addfolder)
+        self.retranslateUi(Preferences)
+        self.Preferences_Libraries_FolderAdd.pressed.connect(Preferences.addfolder)
+        self.Preferences_Libraries_RemovePath.pressed.connect(Preferences.removefolder)
 
         self.tabWidget.setCurrentIndex(0)
         self.Preferences_Libraries_FolderAdd.setDefault(False)
 
 
-        QMetaObject.connectSlotsByName(Form)
+        QMetaObject.connectSlotsByName(Preferences)
     # setupUi
 
-    def retranslateUi(self, Form):
-        Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
-        self.actionPreferences_Libraries_FolderAdd.setText(QCoreApplication.translate("Form", u"Preferences_Libraries_FolderAdd", None))
-        self.Preferences_Libraries_RemoveMissing.setText(QCoreApplication.translate("Form", u"Automatically remove missing files from database on scan", None))
-        self.Preferences_Libraries_ManualScan.setText(QCoreApplication.translate("Form", u"Scan", None))
-        self.Preferences_Libraries_FolderAdd.setText(QCoreApplication.translate("Form", u"Add Folder", None))
-        self.Preferences_Libraries_ChangePath.setText(QCoreApplication.translate("Form", u"Change Path", None))
-        self.Preferences_Libraries_RemovePath.setText(QCoreApplication.translate("Form", u"Remove", None))
-        self.Preferences_Libraries_OpenPath.setText(QCoreApplication.translate("Form", u"Open Path", None))
+    def retranslateUi(self, Preferences):
+        Preferences.setWindowTitle(QCoreApplication.translate("Preferences", u"Form", None))
+        self.Preferences_Libraries_RemoveMissing.setText(QCoreApplication.translate("Preferences", u"Automatically remove missing files from database on scan", None))
+        self.Preferences_Libraries_ManualScan.setText(QCoreApplication.translate("Preferences", u"Scan", None))
+        self.Preferences_Libraries_FolderAdd.setText(QCoreApplication.translate("Preferences", u"Add Folder", None))
+        self.Preferences_Libraries_ChangePath.setText(QCoreApplication.translate("Preferences", u"Change Path", None))
+        self.Preferences_Libraries_RemovePath.setText(QCoreApplication.translate("Preferences", u"Remove", None))
+        self.Preferences_Libraries_OpenPath.setText(QCoreApplication.translate("Preferences", u"Open Path", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), "")
     # retranslateUi
 

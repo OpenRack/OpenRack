@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>Preferences</class>
+ <widget class="QWidget" name="Preferences">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -125,8 +125,17 @@
         <height>24</height>
        </rect>
       </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
       <property name="text">
        <string>Add Folder</string>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <property name="autoRepeat">
+       <bool>false</bool>
       </property>
       <property name="autoDefault">
        <bool>false</bool>
@@ -177,34 +186,26 @@
        <string>Open Path</string>
       </property>
      </widget>
-     <widget class="QListWidget" name="Preferences_Libraries_ListDisplay">
+     <widget class="QListView" name="Preferences_Libraries_ListView">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>531</width>
-        <height>141</height>
+        <x>0</x>
+        <y>0</y>
+        <width>551</width>
+        <height>171</height>
        </rect>
       </property>
      </widget>
     </widget>
    </widget>
   </widget>
-  <action name="actionPreferences_Libraries_FolderAdd">
-   <property name="text">
-    <string>Preferences_Libraries_FolderAdd</string>
-   </property>
-   <property name="menuRole">
-    <enum>QAction::TextHeuristicRole</enum>
-   </property>
-  </action>
  </widget>
  <resources/>
  <connections>
   <connection>
    <sender>Preferences_Libraries_FolderAdd</sender>
-   <signal>clicked()</signal>
-   <receiver>Form</receiver>
+   <signal>pressed()</signal>
+   <receiver>Preferences</receiver>
    <slot>addfolder()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -217,8 +218,28 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>Preferences_Libraries_RemovePath</sender>
+   <signal>pressed()</signal>
+   <receiver>Preferences</receiver>
+   <slot>removefolder()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>617</x>
+     <y>91</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>431</x>
+     <y>320</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>addfolder()</slot>
+  <slot>removefolder()</slot>
+  <slot>scanfolders()</slot>
+  <slot>autoremovemissing()</slot>
+  <slot>openpath()</slot>
  </slots>
 </ui>
