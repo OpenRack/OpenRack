@@ -2,6 +2,7 @@ from ast import main
 from PyQt6 import QtWidgets
 from PyQt6.QtWidgets import QMainWindow, QApplication, QFileDialog, QWidget
 from PyQt6.uic import loadUi
+from PyQt6 import QtGui
 import sys
 import ComicLibrary
 from configparser import ConfigParser as ConfParse
@@ -30,7 +31,9 @@ class MainUI(QMainWindow):
             self.prefs.show()
         else:
             self.prefs = None    
-            
+
+
+libraries = yaml.reader(config.yml, file)       
   
 class PrefWindow(QWidget):
     def __init__(self):
@@ -39,15 +42,22 @@ class PrefWindow(QWidget):
         self.Preferences_Libraries_FolderAdd.clicked.connect(self.addfolder)   
     def addfolder(self):
         folder = str(QFileDialog.getExistingDirectory(self))
-        folders = list(yaml.load([folders][0]))
-        folders.append(folder)        
-        yaml.dump(config.yml, file)
-           
+        config['folders'].append(folder)
+        with open('config.yml', 'w') as file:
+            yaml.dump(config, file)           
     def scanfolders(self):
         for library in libraries:
             libfiles = ComicLibrary.Readfiles(ComicLibrary.librarydir)
     def removefolder(self):
         self.Preferences_Libraries_Folder
+    def auto_write_to_db(self):
+        None
+    def write_comicinfo(self):
+        None
+    def backup_db(self):
+        None
+    def restore_db(self):
+        None        
         
 if __name__ == '__main__':
     app = QApplication(sys.argv)

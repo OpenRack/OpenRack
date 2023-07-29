@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>864</width>
-    <height>641</height>
+    <width>869</width>
+    <height>629</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -39,8 +39,8 @@
    </property>
    <property name="iconSize">
     <size>
-     <width>64</width>
-     <height>64</height>
+     <width>32</width>
+     <height>32</height>
     </size>
    </property>
    <property name="elideMode">
@@ -63,8 +63,8 @@
      <enum>Qt::LeftToRight</enum>
     </property>
     <attribute name="icon">
-     <iconset>
-      <normaloff>../../../../Downloads/22222222.png</normaloff>../../../../Downloads/22222222.png</iconset>
+     <iconset resource="icons.qrc">
+      <normaloff>:/standardicons/fugue-icons-3.5.6/icons/book-brown.png</normaloff>:/standardicons/fugue-icons-3.5.6/icons/book-brown.png</iconset>
     </attribute>
     <attribute name="title">
      <string/>
@@ -198,9 +198,174 @@
      </widget>
     </widget>
    </widget>
+   <widget class="QWidget" name="tab_2">
+    <attribute name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/standardicons/fugue-icons-3.5.6/icons/script.png</normaloff>:/standardicons/fugue-icons-3.5.6/icons/script.png</iconset>
+    </attribute>
+    <attribute name="title">
+     <string/>
+    </attribute>
+    <widget class="QFrame" name="frame">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>781</width>
+       <height>611</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QTableWidget" name="tableWidget">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>781</width>
+        <height>611</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>100</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="sizeAdjustPolicy">
+       <enum>QAbstractScrollArea::AdjustIgnored</enum>
+      </property>
+      <property name="sortingEnabled">
+       <bool>true</bool>
+      </property>
+      <attribute name="horizontalHeaderVisible">
+       <bool>true</bool>
+      </attribute>
+      <attribute name="horizontalHeaderCascadingSectionResizes">
+       <bool>true</bool>
+      </attribute>
+      <attribute name="horizontalHeaderMinimumSectionSize">
+       <number>150</number>
+      </attribute>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>150</number>
+      </attribute>
+      <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+       <bool>true</bool>
+      </attribute>
+      <attribute name="horizontalHeaderStretchLastSection">
+       <bool>true</bool>
+      </attribute>
+      <attribute name="verticalHeaderVisible">
+       <bool>false</bool>
+      </attribute>
+      <column>
+       <property name="text">
+        <string>Script</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Author</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Description</string>
+       </property>
+      </column>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_3">
+    <attribute name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/standardicons/fugue-icons-3.5.6/icons/gear--plus.png</normaloff>:/standardicons/fugue-icons-3.5.6/icons/gear--plus.png</iconset>
+    </attribute>
+    <attribute name="title">
+     <string/>
+    </attribute>
+    <widget class="QFrame" name="frame_2">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>10</y>
+       <width>811</width>
+       <height>351</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QPushButton" name="Preferences_Advanced_Restore_DB">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>300</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Restore Database</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Preferences_Advanced_Backup_DB">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>300</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Backup Database</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="Preferences_Advanced_Write_ComicInfo">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>801</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Write info to ComicInfo.xml</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="Preferences_Advanced_Auto_Write">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>50</y>
+        <width>801</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Update info automatically</string>
+      </property>
+      <property name="tristate">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </widget>
+   </widget>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>Preferences_Libraries_FolderAdd</sender>
@@ -234,6 +399,70 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>Preferences_Advanced_Auto_Write</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>Preferences</receiver>
+   <slot>auto_write_to_db()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>420</x>
+     <y>85</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>434</x>
+     <y>314</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Preferences_Advanced_Write_ComicInfo</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>Preferences</receiver>
+   <slot>write_comicinfo()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>420</x>
+     <y>45</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>434</x>
+     <y>314</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Preferences_Advanced_Backup_DB</sender>
+   <signal>pressed()</signal>
+   <receiver>Preferences</receiver>
+   <slot>backup_db()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>215</x>
+     <y>335</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>434</x>
+     <y>314</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Preferences_Advanced_Restore_DB</sender>
+   <signal>pressed()</signal>
+   <receiver>Preferences</receiver>
+   <slot>restore_db()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>85</x>
+     <y>335</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>434</x>
+     <y>314</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>addfolder()</slot>
@@ -241,5 +470,9 @@
   <slot>scanfolders()</slot>
   <slot>autoremovemissing()</slot>
   <slot>openpath()</slot>
+  <slot>auto_write_to_db()</slot>
+  <slot>write_comicinfo()</slot>
+  <slot>restore_db()</slot>
+  <slot>backup_db()</slot>
  </slots>
 </ui>

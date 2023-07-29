@@ -15,7 +15,7 @@ if "win" in platform:
 dblocationor = os.path.join(appdata, "OpenRack")
 
 
-#librarydir = 
+librarydir = "E:\\Comics"
 
 def ReadFiles(library):
     file_list = []
@@ -69,8 +69,10 @@ def libscan(files):
         for cbfile in files:
             if zipfile.is_zipfile(cbfile):
                 cbzip = zipfile.ZipFile(cbfile, 'r')
-                comicinfo = cbzip.read('ComicInfo.xml')
-                
+                try:
+                    comicinfo = cbzip.read('ComicInfo.xml')
+                except:
+                    print("fuck")
                 # Check if the file exists in the database
                 query = "SELECT id, comicinfo FROM openrack WHERE filepath = ?"
                 cursor.execute(query, (cbfile,))
@@ -99,8 +101,8 @@ def libscan(files):
         if conn:
             conn.close()
     
-#libfiles = ReadFiles(librarydir)
+libfiles = ReadFiles(librarydir)
 
-#libscan(libfiles)
+libscan(libfiles)
 
 #dbmake()

@@ -34,23 +34,13 @@
      <attribute name="title">
       <string>Library</string>
      </attribute>
-     <widget class="QTableView" name="tableView">
-      <property name="geometry">
-       <rect>
-        <x>280</x>
-        <y>0</y>
-        <width>1541</width>
-        <height>801</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QListWidget" name="listWidget">
+     <widget class="QListView" name="listView">
       <property name="geometry">
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>281</width>
-        <height>791</height>
+        <width>1821</width>
+        <height>801</height>
        </rect>
       </property>
      </widget>
@@ -63,6 +53,16 @@
      <attribute name="title">
       <string>Folders</string>
      </attribute>
+     <widget class="QTreeView" name="treeView">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1641</width>
+        <height>801</height>
+       </rect>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>
@@ -92,6 +92,17 @@
    <addaction name="menu_Edit"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
   <action name="action_Open">
    <property name="icon">
     <iconset resource="icons.qrc">
@@ -117,6 +128,21 @@
    </property>
    <property name="text">
     <string>Preferences</string>
+   </property>
+  </action>
+  <action name="action_sidebar">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/standardicons/fugue-icons-3.5.6/icons/application-sidebar.png</normaloff>:/standardicons/fugue-icons-3.5.6/icons/application-sidebar.png</iconset>
+   </property>
+   <property name="text">
+    <string>Sidebar</string>
+   </property>
+   <property name="toolTip">
+    <string>Sidebar</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
    </property>
   </action>
  </widget>
