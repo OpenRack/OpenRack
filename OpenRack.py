@@ -33,7 +33,7 @@ class MainUI(QMainWindow):
             self.prefs = None    
 
 
-libraries = yaml.reader(config.yml, file)       
+#libraries = yaml.reader("config.yml", file)       
   
 class PrefWindow(QWidget):
     def __init__(self):

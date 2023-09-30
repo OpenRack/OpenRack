@@ -18,13 +18,19 @@ demofiles = cl.ReadFiles(library)
                 
 
     
-    def generatethumbs(files):
-        for cbfile in files:
-                if zipfile.is_zipfile(cbfile):
-                    cbzip = zipfile.ZipFile(cbfile, 'r')
-                    try:
-                        thumbnail = cbzip.read('P00001.jpg')
-                    except:
-                        print("No pages found!")
-        return thumbnail
+def generatethumbs(files):
+    for cbfile in files:
+            if zipfile.is_zipfile(cbfile):
+                cbzip = zipfile.ZipFile(cbfile, 'r')
+                try:
+                    thumbnail = cbzip.extract('P00001.jpg',cbfile+"thumb.jpg")
+                except:
+                    print("No pages found!")
+    return thumbnail
+
+thumbnail = generatethumbs(demofiles)
+print(type(thumbnail))
+if thumbnail:
+    print("success")
+    print(thumbnail)
     
