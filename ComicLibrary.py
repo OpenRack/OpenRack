@@ -26,28 +26,7 @@ def ReadFiles(library):
             file_list.append(os.path.join(root, file))
     return file_list
 
-'''def UpdateDB(host, user, password, database, files):
-    addbook = ("INSERT INTO openrack "
-           "(id, comicinfo, filepath) "
-           "VALUES (null, %s, %s)")
-    conn = db.connect(host=host, user=user, password=password, database=database)
-    cursor = conn.cursor
-    for cbfile in files:
-        
-        if zipfile.is_zipfile(cbfile):
-            cbzip = zipfile.ZipFile(cbfile, 'r')
-            comicinfo = cbzip.read('ComicInfo.xml')
-            check if file exists in zip
-                file = id
-                id = filename OR lastrowid
-            if exists == False:
-                id = cursor.lastrowid
-            bookdata = (comicinfo,cbfile)
-            cursor.execute (addbook, bookdata)
-            conn.commit()
-    cursor.close()
-    conn.close()
-'''    
+
 
 def dbconnecttest():
     print(dblocationor)
