@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask
+from flask import Flask, Response, render_template, request
 
 
 def create_app(test_config=None):
@@ -28,6 +28,10 @@ def create_app(test_config=None):
     @app.route("/openrack")
     def hello():
         return "Hello, World!"
+
+    @app.route("/index")
+    def index():
+        return render_template("/app/index.html.j2")
 
     from . import db
 
