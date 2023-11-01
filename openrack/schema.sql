@@ -1,0 +1,14 @@
+DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS post;
+
+CREATE TABLE books (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  comicinfo TEXT,
+  filepath TEXT,
+  title TEXT NOT NULL,
+  publisher TEXT NOT NULL,
+  author TEXT NOT NULL
+);
+
+
+
