@@ -1,8 +1,7 @@
 import sqlite3
-
 import click
 from flask import current_app, g
-
+import openrack
 
 def get_db():
     if "db" not in g:
@@ -27,6 +26,8 @@ def init_db():
 
     with current_app.open_resource("schema.sql") as f:
         db.executescript(f.read().decode("utf8"))
+
+
 
 
 @click.command("init-db")
