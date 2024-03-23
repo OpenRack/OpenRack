@@ -1,4 +1,8 @@
 {
     "python.analysis.autoImportCompletions": true,
-    "python.analysis.typeCheckingMode": "off"
+    "python.analysis.typeCheckingMode": "off",
+    "rust-analyzer.linkedProjects": [
+        "./openrack/Cargo.toml",
+        "./openrack/Cargo.toml"
+    ]
 }
